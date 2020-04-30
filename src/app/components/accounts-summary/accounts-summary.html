@@ -1,0 +1,35 @@
+<header>
+  <div (click)="orderBy('id')" class="{{order.orderBy === 'id' ? 'selected' : ''}}">
+    <span>
+      Account
+      <span *ngIf="order.orderBy === 'id'">
+        <b>{{order.order === 'asc' ? '∧' : '∨'}}</b>
+      </span>
+    </span>
+  </div>
+  <div (click)="orderBy('amount')" class="{{order.orderBy === 'amount' ? 'selected' : ''}}">
+    <span>
+      <span *ngIf="order.orderBy === 'amount'">
+        <b>{{order.order === 'asc' ? '∧' : '∨'}}</b>
+      </span>
+      Available Cash
+    </span>
+    <span>Today's Change</span>
+  </div>
+</header>
+<main>
+  <div *ngFor="let account of accounts" class="row">
+    <div>
+      <span>{{account.name + ' - ' + account.id}}</span>
+    </div>
+    <div>
+      <span>{{account.amount | currency: account.currency}}</span>
+      <span class="{{account.change > 0 ? 'green' : account.change < 0 ? 'red' : ''}}">
+        {{(account.change > 0 ? '+' : '') + ((account.change /
+        account.prevAmount) | percent: '1.2-2') + ' / ' + (account.change |
+        currency: account.currency)}}
+      </span>
+    </div>
+  </div>
+  <div *ngIf="canLoadMore" (click)="getAccounts()" class="loadMore">Load more</div>
+</main>

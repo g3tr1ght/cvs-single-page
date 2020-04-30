@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900|Roboto:300&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: medium;
+  color: var(--text-color);
+}
+
+* {
+  --white: #ffffff;
+  --very-light-grey: #f7f7f7;
+  --light-grey: #efefef;
+  --grey: #e5e5e5;
+  --text-grey: #787878;
+  --text-color: #333333;
+  --blue: #1575b1;
+  --green: #34b057;
+  --red: #ff2233;
+}
